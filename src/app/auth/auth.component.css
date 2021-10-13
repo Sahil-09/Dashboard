@@ -1,0 +1,132 @@
+.example-form {
+    min-width: 26vw;
+    max-width: 32vw;
+    width: 100%;
+  }
+  
+.example-full-width {
+    width: 100%;
+}
+
+.container{
+    animation: loadin 0.5s ease-in ;
+}
+
+@keyframes loadin {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-btn{
+    display: flex;
+    cursor: pointer;
+    background-color: rgb(165, 165, 165);
+    width: 50px;
+    height: 50px;
+    border-radius:10px;
+    float: right;
+    animation: loadin 0.8s ease-in ;
+}
+
+.small{
+    font-size: 10px;
+    color: rgb(104, 104, 104);
+}
+
+.alert-con{
+    display: block;
+    float: right;
+    padding: 1vw;
+}
+
+.alert{
+    padding: 0.5vw;
+    font-size: 1vw;
+    background-color: rgb(255, 255, 255);
+    animation: loadin 0.8s 1 ease-in ;
+}
+
+.close{
+    opacity: 0;
+    animation: fade 0.8s 1 ease-in ;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.success{
+    color:white;
+    background-color: rgb(40, 165, 40);
+}
+
+.error{
+    color:white;
+    background-color: rgb(204, 23, 23);
+}
+
+.btn-con{
+    display: flex;
+    float: right;
+    padding: 1vw;
+    position: absolute;
+    align-items: center;
+    margin-left: 4vw;
+}
+
+.err{
+    color: red;
+    font-size: 12px;
+}
+
+.blue{
+    cursor: pointer;
+    color: rgb(0, 102, 255);
+}
+
+.head{
+    text-align: center;
+    padding: 1vw;
+    margin: 0;
+}
+
+form{
+    padding: 2vw;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+
+@media screen and (max-width:425px) {
+    .example-form {
+        min-width: 55vw;
+        max-width: 86vw;
+        width: 100%;
+      }
+
+      form{
+          padding:4vw
+      }
+}
+
+
+  

@@ -1,0 +1,149 @@
+.backdrop{
+    display:flex;
+    height:100vh;
+    width: 100vw;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    backdrop-filter: blur(4px);
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.password{
+    background: rgb(189, 189, 189);
+    color: rgb(189, 189, 189);
+    border-radius: 6px;
+    transition: all 0.5s ease-in-out;
+}
+
+.control{
+    cursor: pointer;
+}
+
+.control:hover{
+    color:rgb(0, 102, 255)
+}
+
+.password:hover{
+    background:none;
+    color: black;
+}
+
+form{
+    z-index: 2;
+    padding: 2vw;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+
+table{
+    width: 85%;
+}
+
+.btn-container{
+    display: flex;
+}
+
+.admin-btn{
+    display: flex;
+    cursor: pointer;
+    background-color: rgb(165, 165, 165);
+    width: 50px;
+    height: 50px;
+    border-radius:10px;
+    float: right;
+    animation: loadin 0.8s ease-in ;
+}
+
+.btn-con{
+    display: flex;
+    float: right;
+    padding: 1vw;
+    position: absolute;
+    align-items: center;
+    margin-left: 4vw;
+    z-index: 2;
+}
+
+
+.logout{
+    margin-left: 5vw;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+.example-full-width {
+    width: 80%;
+}
+
+
+@media screen and (max-width:425px){
+    table{
+        width: 100%;
+        overflow: scroll;
+        border-radius: 10px;
+    }
+
+    .mat-table{
+        padding: 2vw;
+    }
+
+    .mat-column-SR{
+        display: none
+    }
+
+    .mat-column-Phone{
+        display: none
+    }
+
+
+    .container{
+        margin:0 5vw;
+        justify-content: flex-start;
+        padding-top: 9vw;
+    }
+
+    .mat-cell,.mat-header-cell{
+        font-size: 2.2vw;
+    }
+    .mat-raised-button{
+        font-size:2.5vw
+    }
+    td.mat-cell:last-of-type{
+        padding: 0px;
+    }
+
+    .example-form {
+        min-width: 55vw;
+        max-width: 86vw;
+        width: 100%;
+      }
+
+      form{
+          padding:4vw
+      }
+
+}
