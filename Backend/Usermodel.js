@@ -4,7 +4,7 @@ const user=new schema({
     Name:{type:String},
     Gender:{type:String},
     Password:{type:String},
-    Email:{type:String},
+    Email:{type:String,required:true,unique:true},
     Phone:{type:Number},
     Date:{type:String},
     Role:{type:String},

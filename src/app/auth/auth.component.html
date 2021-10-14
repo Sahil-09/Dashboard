@@ -39,8 +39,8 @@
 
     <mat-form-field class="example-full-width">
         <mat-label>Confirm your password</mat-label>
-        <input matInput type="password" #cpass>
-        <label class="err" *ngIf="(f.Password.value !== cpass.value) && f.Password.touched && cpass.value">Password doesn't match</label>
+        <input matInput type="password" formControlName="Cpassword">
+        <label class="err" *ngIf="(f.Password.value !== f.Cpassword.value) && f.Password.touched && f.Cpassword.value">Password doesn't match</label>
     </mat-form-field>
 
     <mat-form-field>
@@ -61,7 +61,7 @@
     </mat-form-field>
 
 
-    <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid">{{islogin ? "Login":"Signup"}}</button> &nbsp; | &nbsp;
+    <button mat-raised-button color="accent" type="submit">{{islogin ? "Login":"Signup"}}</button> &nbsp; | &nbsp;
     {{islogin ? "Dont have account?":"Already have account?"}}
     <a class="blue" (click)="switch()">{{!islogin ? "Login":"Signup"}}</a>
     <p class="small">*To register as admin square is the key 4times</p>
@@ -83,7 +83,7 @@
         <input matInput type="password" formControlName="Password">
     </mat-form-field>
 
-    <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid" >{{islogin ? "Login":"Signup"}}</button> &nbsp; | &nbsp;
+    <button mat-raised-button color="accent" type="submit">{{islogin ? "Login":"Signup"}}</button> &nbsp; | &nbsp;
     {{islogin ? "Dont have account?":"Already have account?"}}
     <a class="blue" (click)="switch()">{{islogin ? "Signup":"Login"}}</a>
 </form>

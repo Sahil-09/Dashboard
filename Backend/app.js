@@ -21,8 +21,8 @@ app.get("/users",adminvalid,(req,res)=>{
 })
 
 app.post("/signup",(req,res)=>{
-    User.find({Email:req.body.Email}).then(user=>{
-        if(user.length==0){
+    // User.find({Email:req.body.Email}).then(user=>{
+        // if(user.length==0){
             bcrypt.hash(req.body.Password,10).then(hashpas=>{
                 let user=new User({
                     Name:req.body.Name,
@@ -34,14 +34,16 @@ app.post("/signup",(req,res)=>{
                     Address:req.body.Address,
                     Role:req.body.Role || "User"
                 })
-                user.save()
-            }).then(()=>{
-                res.status(200).json({result:"Successfully signup"})
-            }) 
-        }else{
-            res.status(200).json({error:"Email already exist"})
-        }
-    })
+                user.save(err=>{
+                    console.log(err)
+                    res.status(200).json({error:"Email already exist"})
+                }).then(res=>{
+                    res.status(200).json({result:"Successfully signup"})
+                })
+            })
+        
+        
+    // })
    
 })
 
