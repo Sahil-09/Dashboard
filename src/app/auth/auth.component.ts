@@ -11,12 +11,10 @@ import { Appservice } from '../app.service';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private http:HttpClient,private router:Router,private serv:Appservice) { }
+  constructor(private router:Router,private serv:Appservice) { }
   islogin:boolean=true;
   admin:boolean=false;
   count:number=0;
-
-  @ViewChild('alert') Alert:any
 
   success:string | undefined
   error:string | undefined

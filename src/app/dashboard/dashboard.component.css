@@ -17,6 +17,44 @@
     align-items: center;
 }
 
+.alert-con{
+    display: block;
+    float: right;
+    padding: 1vw;
+}
+
+.alert{
+    padding: 0.5vw;
+    font-size: 1vw;
+    background-color: rgb(255, 255, 255);
+    animation: loadin 0.8s 1 ease-in ;
+}
+
+.close{
+    opacity: 0;
+    animation: fade 0.8s 1 ease-in ;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.success{
+    color:white;
+    background-color: rgb(40, 165, 40);
+}
+
+.error{
+    color:white;
+    background-color: rgb(204, 23, 23);
+}
+
+
 .form-container{
     height: 100vh;
     width: 100vw;

@@ -35,10 +35,11 @@ app.post("/signup",(req,res)=>{
                     Role:req.body.Role || "User"
                 })
                 user.save(err=>{
-                    console.log(err)
-                    res.status(200).json({error:"Email already exist"})
-                }).then(res=>{
-                    res.status(200).json({result:"Successfully signup"})
+                    if(err){
+                        res.status(200).json({error:"Email already exist"})
+                    }else{
+                        res.status(200).json({result:"Successfully signup"})
+                    }
                 })
             })
         
@@ -82,11 +83,14 @@ app.put("/update",(req,res)=>{
             user.Date=req.body.Date,
             user.Address=req.body.Address,
             user.Role=req.body.Role || "User"
-            user.save()
-        }).then(result=>{
-        console.log("Updated")
-        res.json({result:"Updated!"})
-    })    
+            user.save(err=>{
+                if(err){
+                    res.status(200).json({error:"Error occured"})
+                }else{
+                    res.json({result:"Updated!"})
+                }
+            }) 
+        })
 })
 })
 

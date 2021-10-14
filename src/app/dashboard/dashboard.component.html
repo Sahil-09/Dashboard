@@ -3,6 +3,9 @@
   <div class="admin-btn" (click)="Adminac()"></div>
 </div>
 
+<div class="alert-con" *ngIf="success || error">
+  <div class="alert" id="alert" [ngClass]="success ? 'success' : 'error'">{{success || error}}</div>
+</div>
 
 <div class="form-container" *ngIf="switch">
   <form class="example-form" [formGroup]="updateform" (ngSubmit)="submit(updateform)">

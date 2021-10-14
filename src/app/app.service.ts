@@ -45,7 +45,7 @@ export class Appservice{
     }
 
     update(data:any){
-        return this.http.put("http://localhost:3000/update",data)
+        return this.http.put<{result:string,error:string}>("http://localhost:3000/update",data)
     }
 
     logout(){

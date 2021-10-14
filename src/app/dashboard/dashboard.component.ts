@@ -46,6 +46,10 @@ export class DashboardComponent implements OnInit {
   CURRENT_USER:USER[]=[]
   switch:boolean=false;
   editmode:boolean=false;
+
+  success:string | undefined;
+  error:string | undefined;
+
   index:number=-1;
   count:number=0;
   profileedit:boolean=false
@@ -128,6 +132,28 @@ export class DashboardComponent implements OnInit {
         this.index=-1
         this.switch=false
         this.editmode=false
+        if(result.result){
+          this.success=result.result
+          setTimeout(()=>{
+            document.getElementById("alert")?.classList.add("close")
+          },2000)
+          setTimeout(()=>{
+            document.getElementById("alert")?.classList.remove("close")
+            document.getElementById("alert")?.classList.remove("success")
+            this.success=undefined
+          },2010)
+        }
+        if(result.error){
+          this.error=result.error
+          setTimeout(()=>{
+            document.getElementById("alert")?.classList.add("close");
+          },2000)
+          setTimeout(()=>{
+            document.getElementById("alert")?.classList.remove("close");
+            document.getElementById("alert")?.classList.remove("error");
+            this.error=undefined
+          },2010)
+        }
         this.updateform.reset()
       })
     }else{
@@ -138,6 +164,28 @@ export class DashboardComponent implements OnInit {
           this.dataSource.data=users.users
           this.updateform.reset()
           this.switch=false
+          if(result.result){
+            this.success=result.result
+            setTimeout(()=>{
+              document.getElementById("alert")?.classList.add("close")
+            },2000)
+            setTimeout(()=>{
+              document.getElementById("alert")?.classList.remove("close")
+              document.getElementById("alert")?.classList.remove("success")
+              this.success=undefined
+            },2010)
+          }
+          if(result.error){
+            this.error=result.error
+            setTimeout(()=>{
+              document.getElementById("alert")?.classList.add("close");
+            },2000)
+            setTimeout(()=>{
+              document.getElementById("alert")?.classList.remove("close");
+              document.getElementById("alert")?.classList.remove("error");
+              this.error=undefined
+            },2010)
+          }
         })
       }))
     }
