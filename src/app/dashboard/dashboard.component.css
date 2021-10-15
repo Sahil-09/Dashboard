@@ -35,6 +35,11 @@
     animation: fade 0.8s 1 ease-in ;
 }
 
+.err{
+    color: red;
+    font-size: 12px;
+}
+
 @keyframes fade{
     0%{
         opacity: 1;

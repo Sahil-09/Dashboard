@@ -15,36 +15,36 @@
 
 <form class="example-form" *ngIf="!islogin" [formGroup]="signupform" (ngSubmit)="signup(signupform)">
     <mat-form-field class="example-full-width">
-      <mat-label>Enter your Name</mat-label>
+      <mat-label>Enter your Name*</mat-label>
       <input matInput type="name" placeholder="Ex. Rohan" formControlName="Name">
       <label class="err" *ngIf="f.Name.invalid && f.Name.touched">Please enter your name</label>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <mat-label>Enter your email</mat-label>
+        <mat-label>Enter your email*</mat-label>
         <input matInput type="email" placeholder="Ex. urmail@mail.com" formControlName="Email">
         <label class="err" *ngIf="f.Email.invalid && f.Email.touched">Please enter valid email</label>
       </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <mat-label>Enter your Phone number</mat-label>
+      <mat-label>Enter your Phone number*</mat-label>
       <input matInput type="tel" placeholder="Ex. 9999999999" formControlName="Phone">
       <label class="err" *ngIf="f.Phone.invalid && f.Phone.touched">Please enter valid phonenumber</label>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <mat-label>Enter your password</mat-label>
+        <mat-label>Enter your password*</mat-label>
         <input matInput type="password" formControlName="Password">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <mat-label>Confirm your password</mat-label>
+        <mat-label>Confirm your password*</mat-label>
         <input matInput type="password" formControlName="Cpassword">
         <label class="err" *ngIf="(f.Password.value !== f.Cpassword.value) && f.Password.touched && f.Cpassword.value">Password doesn't match</label>
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Select gender</mat-label>
+        <mat-label>Select gender*</mat-label>
         <mat-select formControlName="Gender">
           <mat-option>None</mat-option>
           <mat-option value="Male">Male</mat-option>
@@ -55,7 +55,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width" >
-      <mat-label>Enter your address</mat-label>
+      <mat-label>Enter your address*</mat-label>
       <textarea matInput formControlName="Address"></textarea>
       <label class="err" *ngIf="f.Address.invalid && f.Address.touched">Please enter address</label>
     </mat-form-field>
@@ -65,6 +65,7 @@
     {{islogin ? "Dont have account?":"Already have account?"}}
     <a class="blue" (click)="switch()">{{!islogin ? "Login":"Signup"}}</a>
     <p class="small">*To register as admin square is the key 4times</p>
+    <p *ngIf="ferr" class="err">Enter valid details</p>
 </form>
 
 
@@ -74,19 +75,20 @@
 <form class="example-form" *ngIf="islogin" (ngSubmit)="Login(loginform)" [formGroup]="loginform">
 
     <mat-form-field class="example-full-width">
-        <mat-label>Enter your email</mat-label>
+        <mat-label>Enter your email*</mat-label>
         <input matInput type="email" placeholder="Ex. urmail@mail.com" formControlName="Email">
       </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <mat-label>Enter your password</mat-label>
+        <mat-label>Enter your password*</mat-label>
         <input matInput type="password" formControlName="Password">
     </mat-form-field>
 
     <button mat-raised-button color="accent" type="submit">{{islogin ? "Login":"Signup"}}</button> &nbsp; | &nbsp;
     {{islogin ? "Dont have account?":"Already have account?"}}
     <a class="blue" (click)="switch()">{{islogin ? "Signup":"Login"}}</a>
-</form>
+    <p *ngIf="ferr" class="err">*Enter valid details</p>
+  </form>
 </div>
 
   

@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
     Phone:new FormControl(null,[Validators.required]),
     Password:new FormControl(null,Validators.required),
     Gender:new FormControl(null,Validators.required),
+    Cpassword:new FormControl(null,Validators.required),
     Role:new FormControl(null,[Validators.required]),
     Address:new FormControl(null,Validators.required),
     id:new FormControl(null,Validators.required)
@@ -46,6 +47,7 @@ export class DashboardComponent implements OnInit {
   CURRENT_USER:USER[]=[]
   switch:boolean=false;
   editmode:boolean=false;
+  ferr:boolean=false
 
   success:string | undefined;
   error:string | undefined;
@@ -109,6 +111,7 @@ export class DashboardComponent implements OnInit {
 
   toggle(){
     this.switch=!this.switch;
+    this.ferr=false
     this.updateform.reset()
   }
 
@@ -121,6 +124,8 @@ export class DashboardComponent implements OnInit {
   }
 
   submit(form:FormGroup){
+    if(this.updateform.valid){
+      this.ferr=false
     if(this.editmode){
       console.log(this.index)
       this.Serv.update(form.value).subscribe(result=>{
@@ -189,7 +194,9 @@ export class DashboardComponent implements OnInit {
         })
       }))
     }
-   
+  }else{
+    this.ferr=true
+  }
     console.log(form.value)
   }
 

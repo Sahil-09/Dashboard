@@ -19,6 +19,8 @@ export class AuthComponent implements OnInit {
   success:string | undefined
   error:string | undefined
 
+  ferr:boolean =false
+
   signupform=new FormGroup({
     Name:new FormControl(null,Validators.required),
     Email:new FormControl(null,[Validators.required,Validators.email]),
@@ -55,6 +57,8 @@ export class AuthComponent implements OnInit {
   
 
   signup(form:FormGroup){
+    if(this.signupform.valid){
+      this.ferr=false;
     this.serv.signup(form.value).subscribe(data=>{
       this.signupform.reset()
       console.log(data)
@@ -81,16 +85,22 @@ export class AuthComponent implements OnInit {
           this.error=undefined
         },2010)
       }
-      
     })
+    }else{
+      this.ferr=true;
+    }
   }
 
   Login(form:FormGroup){
-    console.log(form.value)
+    if(this.loginform.valid){
+      this.ferr=false
     this.serv.login(form.value).subscribe(data=>{
       this.router.navigate(["dashboard"])
       console.log(data)
     })
+    }else{
+      this.ferr=true
+    }
   }
 
 
